@@ -1,0 +1,25 @@
+# --- VS Code & Editor ---
+.vscode/
+*.code-workspace
+.history/
+
+# --- Sistemi Operativi ---
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Backup e Temporanei ---
+*.log
+*.tmp
+*.bak
+*.swp
+
+# --- Configurazioni Sensibili (IMPORTANTE) ---
+# Esclude le credenziali FTP dell'estensione SFTP per Altervista
+sftp.json
+.vscode/sftp.json
+
+# Se userai variabili d'ambiente o file di configurazione con password
+.env
+config.php
