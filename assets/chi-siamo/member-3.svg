@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" role="img" aria-labelledby="title desc">
+  <title id="title">Member portrait 3</title>
+  <desc id="desc">Abstract member portrait with gradients.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#00FF94" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#00FF94" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="700" height="500" rx="28" fill="url(#bg)"/>
+  <circle cx="350" cy="150" r="110" fill="url(#halo)"/>
+  <circle cx="350" cy="190" r="70" fill="#F8FAFC" opacity="0.96"/>
+  <rect x="280" y="270" width="140" height="26" rx="13" fill="#F8FAFC" opacity="0.92"/>
+  <rect x="252" y="312" width="196" height="20" rx="10" fill="#F8FAFC" opacity="0.5"/>
+  <rect x="252" y="344" width="166" height="20" rx="10" fill="#F8FAFC" opacity="0.35"/>
+</svg>
