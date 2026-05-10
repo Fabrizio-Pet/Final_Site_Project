@@ -4,45 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servizi - Progetto TPSI</title>
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="servizi-page">
     <nav>
         <div class="navbar">
-            <a href="../index.html" class="logo">Home</a>
+            <div class="brand">
+                <a class="navbar-brand" href="../index.html">
+                    <span class="logo-icon" aria-hidden="true">🛡️</span>
+                    <span class="brand-text">SHIELD<span class="brand-accent">UP</span></span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="Apri menu">
+                <span class="nav-toggle-icon">☰</span>
+            </button>
+
             <ul class="nav-links">
                 <li><a href="chi-siamo.html">Chi Siamo</a></li>
                 <li><a href="servizi.html">Servizi</a></li>
                 <li><a href="cybertest.html">CyberTest</a></li>
                 <li><a href="threat.html">Threat</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
                 <li><a href="past-works.html">Past Works</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="contatti.html">Contatti</a></li>
+                <li><a class="btn-ghost" href="contatti.html">Contatti</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="site-header">
+    <header class="intestazione servizi-hero">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <h1>I Nostri Servizi</h1>
-                    <p class="lead">Scopri cosa possiamo offrire</p>
+            <div class="container">
+                <div class="row align-items-center g-4 g-lg-5">
+                    <div class="col-12 col-lg-7 contenuto-intestazione">
+                        <p class="hero-kicker">I Nostri</p>
+                        <h1>Servizi</h1>
+                        <p class="lead">Tre pilastri della cybersecurity: test di penetrazione, hardening dei sistemi e formazione dei team.</p>
+                    </div>
+                    <div class="col-12 col-lg-5 header-visual" aria-hidden="true">
+                        <div class="visuale"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="content container-fluid">
+        <section class="servizi-section container-fluid">
             <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Servizi disponibili</h2>
-                        <p>Contenuto della pagina "Servizi" verrà aggiunto qui.</p>
-                    </div>
+                <div class="servizi-cards-grid">
+                    <article class="card servizi-card border-0 overflow-hidden">
+                        <div class="servizi-card-media servizi-card-media--placeholder" aria-hidden="true">
+                            <span>IMG</span>
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="h5 mb-2">Penetration Test</h3>
+                            <p class="mb-0">Simuliamo attacchi reali per individuare vulnerabilità nei sistemi. Ogni test è seguito da un report dettagliato con raccomandazioni e priorità d'intervento.</p>
+                        </div>
+                    </article>
+
+                    <article class="card servizi-card border-0 overflow-hidden">
+                        <div class="servizi-card-media servizi-card-media--placeholder" aria-hidden="true">
+                            <span>IMG</span>
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="h5 mb-2">Hardening</h3>
+                            <p class="mb-0">Rinforziamo i tuoi sistemi riducendo la superficie d'attacco. Analizziamo configurazioni, patch management e policy di sicurezza.</p>
+                        </div>
+                    </article>
+
+                    <article class="card servizi-card border-0 overflow-hidden">
+                        <div class="servizi-card-media servizi-card-media--placeholder" aria-hidden="true">
+                            <span>IMG</span>
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="h5 mb-2">Formazione</h3>
+                            <p class="mb-0">Corsi e workshop per sviluppare consapevolezza della sicurezza nei team. Da principiante a advanced, personalizzati sulle tue esigenze.</p>
+                        </div>
+                    </article>
+
+                    <article class="card servizi-card border-0 overflow-hidden">
+                        <div class="servizi-card-media servizi-card-media--placeholder" aria-hidden="true">
+                            <span>IMG</span>
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="h5 mb-2">Consultancy</h3>
+                            <p class="mb-0">Supporto strategico per pianificare il percorso di sicurezza. Risk assessment, compliance check e roadmap di miglioramento.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>

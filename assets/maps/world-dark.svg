@@ -1,0 +1,32 @@
+<svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" style="background-color: #0F172A; border-radius: 8px; border: 1px solid #1E293B;">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <g fill="none" stroke="#00FF94" stroke-width="1.5" opacity="0.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 120 L280 120 L310 200 L250 320 L180 250 Z" />
+    <path d="M260 330 L320 330 L350 450 L300 480 L250 400 Z" />
+    <path d="M450 100 L850 100 L920 250 L750 350 L600 350 L480 250 Z" />
+    <path d="M470 260 L580 260 L620 400 L550 460 L480 400 Z" />
+    <path d="M780 380 L880 380 L900 450 L800 450 Z" />
+  </g>
+
+  <g fill="#00FF94">
+    <circle cx="490" cy="180" r="4">
+      <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="270" cy="190" r="4">
+      <animate attributeName="opacity" values="1;0.2;1" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="870" cy="200" r="4">
+      <animate attributeName="opacity" values="1;0.2;1" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    
+    <path d="M270 190 Q 380 100 490 180" stroke="#00FF94" stroke-width="1" fill="none" stroke-dasharray="5,5" opacity="0.6">
+        <animate attributeName="stroke-dashoffset" from="100" to="0" dur="5s" repeatCount="indefinite" />
+    </path>
+  </g>
+</svg>
