@@ -4,44 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Past Works - Progetto TPSI</title>
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="past-works-page">
     <nav>
         <div class="navbar">
-            <a href="../index.html" class="logo">Home</a>
+            <div class="brand">
+                <a class="navbar-brand" href="../index.html">
+                    <span class="logo-icon" aria-hidden="true">🛡️</span>
+                    <span class="brand-text">SHIELD<span class="brand-accent">UP</span></span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="Apri menu">
+                <span class="nav-toggle-icon">☰</span>
+            </button>
+
             <ul class="nav-links">
                 <li><a href="chi-siamo.html">Chi Siamo</a></li>
                 <li><a href="servizi.html">Servizi</a></li>
                 <li><a href="cybertest.html">CyberTest</a></li>
                 <li><a href="threat.html">Threat</a></li>
-                <li><a href="past-works.html">Past Works</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contatti.html">Contatti</a></li>
+                <li><a href="past-works.html" class="active">Past Works</a></li>
+                <li><a class="btn-ghost" href="contatti.html">Contatti</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="intestazione">
+    <header class="intestazione past-works-hero">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <h1>Past Works</h1>
-                    <p class="lead">I nostri progetti precedenti</p>
+            <div class="container">
+                <div class="row align-items-center g-4 g-lg-5">
+                    <div class="col-12 col-lg-7 contenuto-intestazione">
+                        <p class="hero-kicker">I nostri lavori</p>
+                        <h1>Past Works</h1>
+                        <p class="lead">Una raccolta dei progetti che abbiamo realizzato e delle sfide che abbiamo affrontato nel campo della cybersecurity.</p>
+                    </div>
+                    <div class="col-12 col-lg-5 header-visual" aria-hidden="true">
+                        <div class="visuale"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="content container-fluid">
+        <section class="past-works-section container-fluid">
             <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Portfolio di progetti</h2>
-                        <p>Contenuto della pagina "Past Works" verrà aggiunto qui.</p>
-                    </div>
+                <div class="past-works-stack">
+                    <!-- Card 1 -->
+                    <article class="past-work-card">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-12 col-lg-6">
+                                <div class="past-work-media past-work-media--placeholder">
+                                    <img src="../assets/safebank.png" alt="Operazione SafeBank" class="w-100 h-100" style="object-fit: cover;">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="past-work-content">
+                                    <h3 class="h5 mb-2">Operazione SafeBank</h3>
+                                    <p class="mb-0"><b>La sfida</b>: Una nota startup nel settore dei pagamenti digitali ci ha contattato a seguito di ripetuti tentativi di intrusione. I loro sistemi erano vulnerabili ad attacchi di tipo SQL Injection, che mettevano a rischio i dati sensibili di migliaia di utenti durante le transazioni.
+                                                    <br><b>La nostra soluzione</b>: Abbiamo condotto un'attività intensiva di Penetration Testing per mappare ogni falla del sistema. Successivamente, abbiamo implementato un Web Application Firewall (WAF) configurato su misura per filtrare il traffico malevolo e proteggere le API di pagamento.
+                                                    <br><b>Il risultato</b>: Grazie al nostro intervento, la startup ha azzerato le vulnerabilità critiche. Oggi ShieldUp garantisce la sicurezza di oltre 50.000 transazioni mensili, assicurando al cliente una piattaforma solida e a prova di hacker.</p>
+                                    <div class="past-work-badges mt-3">
+                                        <span class="badge bg-success">Penetration Testing</span>
+                                        <span class="badge bg-success">SQL Injection</span>
+                                        <span class="badge bg-success">WAF</span>
+                                        <span class="badge bg-info">Payment Security</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="past-work-card">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-12 col-lg-6">
+                                <div class="past-work-media past-work-media--placeholder" aria-hidden="true">
+                                    <span>IMG</span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="past-work-content">
+                                    <h3 class="h5 mb-2">Cloud Fortress</h3>
+                                    <p class="mb-0"><b>La sfida</b>: Un grande portale di e-commerce subiva pesanti rallentamenti e blackout totali durante i periodi di picco, come il Black Friday. Questi problemi erano causati da attacchi DDoS massivi mirati a saturare la banda del server e causare perdite economiche ingenti.
+<br><b>La nostra soluzione</b>: ShieldUp ha riprogettato l'infrastruttura di rete integrando una CDN con protezione anti-DDoS multi-livello. Abbiamo creato un sistema di "scrubbing" capace di distinguere i clienti reali dai bot malevoli in pochi millisecondi.
+<br><b>Il risultato</b>: Il sito è rimasto online con un uptime del 99.99% anche durante un attacco record di 10Gbps. Il cliente ha potuto gestire il traffico record della stagione vendite senza alcun rallentamento visibile per gli utenti.</p>
+                                    <div class="past-work-badges mt-3">
+                                        <span class="badge bg-danger">DDoS Protection</span>
+                                        <span class="badge bg-danger">CDN</span>
+                                        <span class="badge bg-warning">E-Commerce</span>
+                                        <span class="badge bg-info">99.99% Uptime</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="past-work-card">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-12 col-lg-6">
+                                <div class="past-work-media past-work-media--placeholder" aria-hidden="true">
+                                    <span>IMG</span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="past-work-content">
+                                    <h3 class="h5 mb-2">Zero-Trust Architecture</h3>
+                                    <p class="mb-0"><b>La sfida</b>: Uno studio legale di alto profilo aveva la necessità di proteggere faldoni digitali contenenti documenti riservati. Il rischio principale riguardava sia l'accesso non autorizzato dall'esterno, sia la fuga di dati interna dovuta a permessi di accesso troppo permissivi.
+<br><b>La nostra soluzione</b>: Abbiamo implementato una filosofia "Zero-Trust", dove nessun utente è considerato sicuro a prescindere. Abbiamo introdotto un sistema di Identity and Access Management (IAM) e crittografato l'intero archivio utilizzando lo standard militare AES-256.
+<br><b>Il risultato</b>: Ogni documento è ora protetto da una "bolla" di sicurezza: solo chi possiede i permessi specifici e l'autenticazione a due fattori può visualizzare i file. La riservatezza dei dati dei clienti è diventata il fiore all'occhiello dello studio.</p>
+                                    <div class="past-work-badges mt-3">
+                                        <span class="badge bg-primary">Zero-Trust</span>
+                                        <span class="badge bg-primary">IAM</span>
+                                        <span class="badge bg-primary">AES-256</span>
+                                        <span class="badge bg-secondary">Document Security</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="past-work-card">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-12 col-lg-6">
+                                <div class="past-work-media past-work-media--placeholder" aria-hidden="true">
+                                    <span>IMG</span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="past-work-content">
+                                    <h3 class="h5 mb-2">Hardening Industriale</h3>
+                                    <p class="mb-0"><b>La sfida</b>: Un'azienda manifatturiera utilizzava computer industriali con sistemi operativi datati per controllare i macchinari di produzione. Essendo sistemi "legacy", non ricevevano più aggiornamenti di sicurezza, rendendo l'intera fabbrica vulnerabile ai ransomware.
+<br><b>La nostra soluzione</b>: Invece di sostituire i macchinari (operazione troppo costosa), abbiamo eseguito un intervento di Hardening a livello di sistema operativo e isolato la rete di produzione attraverso una segmentazione avanzata (VLAN), proteggendola da internet.
+<br><b>Il risultato</b>: Abbiamo ridotto la superficie di attacco dell'85%, permettendo all'azienda di continuare a produrre in sicurezza con i propri sistemi, ora monitorati e protetti dal firewall perimetrale di ShieldUp.</p>
+                                    <div class="past-work-badges mt-3">
+                                        <span class="badge bg-warning">System Hardening</span>
+                                        <span class="badge bg-warning">Legacy Systems</span>
+                                        <span class="badge bg-danger">Ransomware Protection</span>
+                                        <span class="badge bg-secondary">VLAN</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>

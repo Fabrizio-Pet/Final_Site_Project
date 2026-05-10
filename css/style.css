@@ -180,6 +180,7 @@ nav {
     letter-spacing: -0.04em;
     margin-bottom: 1rem;
     max-width: 11ch;
+    font-weight: 800;
 }
 
 .lead,
@@ -437,6 +438,7 @@ footer a {
     font-size: clamp(3.6rem, 8vw, 5.8rem);
     max-width: none;
     margin-bottom: 1rem;
+    font-weight: 800;
 }
 
 .chi-siamo-hero .contenuto-intestazione .lead {
@@ -550,6 +552,7 @@ footer a {
     font-size: clamp(3.6rem, 8vw, 5.8rem);
     max-width: none;
     margin-bottom: 1rem;
+    font-weight: 800;
 }
 
 .servizi-page .contenuto-intestazione .lead {
@@ -640,6 +643,7 @@ footer a {
     font-size: clamp(3.6rem, 8vw, 5.8rem);
     max-width: none;
     margin-bottom: 1rem;
+    font-weight: 800;
 }
 
 .cybertest-page .contenuto-intestazione .lead {
@@ -1155,6 +1159,20 @@ footer a {
     background: linear-gradient(135deg, #0F172A 0%, #17263f 60%, #0F172A 100%);
 }
 
+.eroe-minacce h1 {
+    font-weight: 800;
+}
+
+.eroe-minacce .hero-kicker {
+    color: #00FF94;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 .sezione-dashboard {
     padding: 48px 0 96px;
     background: #F8FAFC;
@@ -1195,4 +1213,113 @@ footer a {
     .carta-mappa .contenitore-mappa{ min-height:220px }
     .terminale-log{ height:160px; font-size:0.78rem }
     .valore-carta{ font-size:1.4rem }
+}
+
+/* ===== PAST WORKS PAGE STYLES ===== */
+.past-works-hero {
+    background: linear-gradient(145deg, #0F172A 0%, #12213b 100%);
+    padding: 5rem 0 4rem;
+}
+
+.past-works-hero .hero-kicker {
+    color: #00FF94;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.past-works-hero h1 {
+    color: #F8FAFC;
+    font-size: clamp(3.6rem, 8vw, 5.8rem);
+    max-width: none;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.past-works-hero .contenuto-intestazione .lead {
+    color: rgba(248, 250, 252, 0.78);
+    max-width: 44rem;
+}
+
+.past-works-section {
+    padding: 64px 0;
+    background: #F8FAFC;
+    color: var(--text-dark);
+}
+
+.past-works-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.past-work-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(2, 8, 23, 0.06);
+}
+
+.past-work-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 24px 48px rgba(2, 8, 23, 0.14);
+    border-color: rgba(0, 255, 148, 0.28);
+}
+
+.past-work-media {
+
+    background: #E8ECF1;
+    border-radius: 12px;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #94A3B8;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+
+.past-work-content {
+    padding: 1.5rem 0;
+}
+
+.past-work-content h3 {
+    color: #0F172A;
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.past-work-content p {
+    color: #556579;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.past-work-content b {
+    color: #0F172A;
+    font-weight: 700;
+}
+
+.past-work-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.past-work-badges .badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.75rem;
+    border-radius: 4px;
 }
