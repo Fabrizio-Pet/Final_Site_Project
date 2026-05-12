@@ -6,6 +6,7 @@
     --muted: #94A3B8;
     --accent: #00FF94;
     --line: rgba(148, 163, 184, 0.18);
+    --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -16,6 +17,22 @@
 
 html {
     scroll-behavior: smooth;
+}
+
+body {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+body.page-ready {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.page-leaving {
+    opacity: 0;
+    transform: translateY(-4px);
 }
 
 body {
@@ -76,7 +93,6 @@ nav {
     text-decoration: none;
 }
 
-.logo-icon,
 .brand-text,
 .brand-accent {
     color: var(--text);
@@ -96,7 +112,19 @@ nav {
 }
 
 .logo-icon {
-    font-size: 1rem;
+    width: 1.15rem;
+    height: 1.15rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.logo-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 .nav-toggle {
@@ -123,6 +151,15 @@ nav {
     transition: color 0.2s ease, opacity 0.2s ease;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid #00FF94;
+    outline-offset: 2px;
+}
+
 .nav-links a:hover {
     color: #fff;
     opacity: 1;
@@ -132,6 +169,13 @@ nav {
     padding: 0.3rem 0.7rem;
     border: 1px solid rgba(248, 250, 252, 0.22);
     border-radius: 999px;
+}
+
+.nav-links .btn-ghost {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
 }
 
 .intestazione {
@@ -231,11 +275,67 @@ footer {
     transform: translateY(-1px);
 }
 
+.service-card,
+.team-card,
+.past-work-card,
+.contact-panel,
+.answer-btn,
+.btn-primary,
+.btn-outline,
+.btn-contact,
+.carta-piccola,
+.carta-grande {
+    transition-timing-function: var(--ease-soft);
+}
+
+.is-reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.5s var(--ease-soft), transform 0.5s var(--ease-soft);
+}
+
+.is-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .is-reveal,
+    .is-reveal.is-visible {
+        opacity: 1;
+        transform: none;
+    }
+}
+
 .header-visual {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 26rem;
+}
+
+.header-visual > * {
+    animation: floatShape 5s ease-in-out infinite;
+}
+
+@keyframes floatShape {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
 }
 
 .shield-visual {
@@ -262,6 +362,86 @@ footer {
 .shield-visual::after {
     inset: 32%;
     border-radius: 42% 58% 45% 55% / 52% 48% 52% 48%;
+}
+
+.chi-siamo-hero .visuale {
+    border-radius: 54% 46% 42% 58% / 43% 58% 42% 57%;
+    background:
+        radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 28%),
+        linear-gradient(145deg, #00FF94 0%, #5cc7b3 48%, #94A3B8 100%);
+}
+
+.chi-siamo-hero .visuale::before {
+    inset: 22%;
+    border-radius: 28% 72% 60% 40% / 55% 41% 59% 45%;
+}
+
+.chi-siamo-hero .visuale::after {
+    inset: 38%;
+    border-radius: 54% 46% 44% 56% / 44% 56% 44% 56%;
+}
+
+.servizi-hero .visuale {
+    border-radius: 30% 70% 58% 42% / 42% 35% 65% 58%;
+    background:
+        radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0) 24%),
+        linear-gradient(145deg, #94A3B8 0%, #00FF94 55%, #12213b 100%);
+}
+
+.servizi-hero .visuale::before {
+    inset: 20%;
+    border-radius: 44% 56% 36% 64% / 52% 47% 53% 48%;
+}
+
+.servizi-hero .visuale::after {
+    inset: 36%;
+    border-radius: 24% 76% 58% 42% / 40% 60% 40% 60%;
+}
+
+.cybertest-page .header-visual .visuale {
+    border-radius: 44% 56% 34% 66% / 58% 36% 64% 42%;
+    background:
+        radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0) 26%),
+        linear-gradient(145deg, #00FF94 0%, #94A3B8 52%, #12213b 100%);
+}
+
+.cybertest-page .header-visual .visuale::before {
+    inset: 19%;
+    border-radius: 48% 52% 62% 38% / 44% 56% 44% 56%;
+}
+
+.cybertest-page .header-visual .visuale::after {
+    inset: 35%;
+    border-radius: 38% 62% 42% 58% / 60% 40% 60% 40%;
+}
+
+.contatti-hero .contact-orb {
+    border-radius: 60% 40% 52% 48% / 46% 54% 46% 54%;
+}
+
+.contatti-hero .contact-orb::before {
+    border-radius: 44% 56% 34% 66% / 60% 36% 64% 40%;
+}
+
+.contatti-hero .contact-orb::after {
+    border-radius: 30% 70% 58% 42% / 42% 58% 42% 58%;
+}
+
+.past-works-hero .visuale {
+    border-radius: 36% 64% 55% 45% / 55% 38% 62% 45%;
+    background:
+        radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 26%),
+        linear-gradient(145deg, #12213b 0%, #94A3B8 48%, #00FF94 100%);
+}
+
+.past-works-hero .visuale::before {
+    inset: 24%;
+    border-radius: 28% 72% 45% 55% / 44% 56% 44% 56%;
+}
+
+.past-works-hero .visuale::after {
+    inset: 40%;
+    border-radius: 56% 44% 38% 62% / 52% 48% 52% 48%;
 }
 
 .services {
@@ -500,6 +680,8 @@ footer a {
     display: block;
     border-radius: 28px;
     box-shadow: 0 24px 54px rgba(2, 8, 23, 0.16);
+    max-width: 55%;
+    margin: 0 auto;
 }
 
 .team-title {
@@ -530,6 +712,13 @@ footer a {
 
 .team-card-media {
     background: #F8FAFC;
+}
+
+.team-card-media img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 500px;
 }
 
 /* ===== SERVIZI PAGE ===== */
@@ -601,6 +790,13 @@ footer a {
     justify-content: center;
     flex-shrink: 0;
     border-bottom: 2px solid rgba(148, 163, 184, 0.1);
+}
+
+.servizi-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .servizi-card .card-body {
@@ -869,7 +1065,7 @@ footer a {
 
 .team-card-media--placeholder {
     width: 100%;
-    min-height: 220px;
+    min-height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1000,6 +1196,239 @@ footer a {
     margin: 0;
 }
 
+/* ============================================================
+   CONTATTI PAGE STYLES
+   ============================================================ */
+
+.contatti-page .contatti-hero {
+    background: linear-gradient(135deg, #0F172A 0%, #1e2d4d 55%, #0f172a 100%);
+}
+
+.contatti-page .contatti-hero h1 {
+    font-size: clamp(2.4rem, 8vw, 3.8rem);
+    font-weight: 800;
+    color: #F8FAFC;
+    margin-bottom: 1rem;
+}
+
+.contatti-page .contatti-hero .lead {
+    color: rgba(248, 250, 252, 0.78);
+    max-width: 580px;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+
+.contatti-page .contatti-section {
+    background: #F8FAFC;
+    padding: 64px 0;
+}
+
+.contact-panel {
+    background: linear-gradient(180deg, rgba(248, 250, 252, 0.96), rgba(232, 236, 241, 0.98));
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 28px;
+    box-shadow: 0 18px 44px rgba(2, 8, 23, 0.12);
+    overflow: hidden;
+}
+
+.contact-panel--form,
+.contact-panel--info,
+.contact-panel--image,
+.contact-panel--map {
+    padding: 28px;
+}
+
+.contact-panel--form {
+    min-height: 100%;
+}
+
+.section-heading .section-kicker {
+    color: #00FF94;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.65rem;
+}
+
+.contatti-page .section-title {
+    color: #0F172A;
+}
+
+.contact-form .form-label {
+    color: #0F172A;
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+}
+
+.contact-form .form-control {
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(15, 23, 42, 0.42);
+    border-radius: 16px;
+    color: #0F172A;
+    padding: 0.95rem 1rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease, background-color 0.22s ease;
+}
+
+.contact-form .form-control::placeholder {
+    color: #94A3B8;
+}
+
+.contact-form .form-control:hover {
+    border-color: rgba(0, 255, 148, 0.55);
+    transform: translateY(-1px);
+}
+
+.contact-form .form-control:focus {
+    border-color: #00FF94;
+    box-shadow: 0 0 0 0.2rem rgba(0, 255, 148, 0.18);
+    background: #fff;
+}
+
+.btn-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.9rem 1.35rem;
+    border-radius: 999px;
+    border: 0;
+    background: linear-gradient(135deg, #00FF94 0%, #16c7a5 100%);
+    color: #062117;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 14px 30px rgba(0, 255, 148, 0.24);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+}
+
+.btn-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(0, 255, 148, 0.3);
+    filter: saturate(1.05);
+}
+
+.contact-note {
+    color: #51647a;
+    font-size: 0.95rem;
+}
+
+.contact-copy {
+    color: #51647a;
+}
+
+.contact-list {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.95rem 1rem;
+    border-radius: 18px;
+    background: rgba(15, 23, 42, 0.04);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.contact-item-label {
+    color: #94A3B8;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.contact-item-value {
+    color: #0F172A;
+    font-weight: 700;
+}
+
+.contact-panel--image {
+    padding: 0;
+    overflow: hidden;
+    min-height: 260px;
+}
+
+.contact-panel--image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.contact-image-placeholder {
+    min-height: 260px;
+    display: grid;
+    place-items: center;
+    background:
+        linear-gradient(135deg, rgba(0, 255, 148, 0.12), rgba(148, 163, 184, 0.22)),
+        linear-gradient(180deg, #0F172A, #1e2d4d);
+    color: #F8FAFC;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.contact-image-placeholder span {
+    padding: 0.6rem 0.95rem;
+    border: 1px solid rgba(248, 250, 252, 0.2);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.35);
+}
+
+.contact-panel--map {
+    padding-bottom: 20px;
+}
+
+.map-frame-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    background: #0F172A;
+    min-height: 320px;
+}
+
+.contact-map {
+    width: 100%;
+    height: 320px;
+    display: block;
+    border: 0;
+    filter: grayscale(1) invert(0.92) contrast(0.92) hue-rotate(180deg) saturate(0.8);
+}
+
+.contatti-hero-visual {
+    min-height: 18rem;
+}
+
+.contact-orb {
+    width: min(22rem, 100%);
+    aspect-ratio: 1 / 1;
+    border-radius: 44% 56% 48% 52% / 48% 44% 56% 52%;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0) 26%),
+        linear-gradient(145deg, rgba(0, 255, 148, 0.95), rgba(148, 163, 184, 0.92));
+    box-shadow: 0 24px 60px rgba(2, 8, 23, 0.34);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    position: relative;
+}
+
+.contact-orb::before,
+.contact-orb::after {
+    content: "";
+    position: absolute;
+    inset: 18%;
+    border: 2px solid rgba(255, 255, 255, 0.34);
+    border-radius: 34% 66% 52% 48% / 44% 40% 60% 56%;
+}
+
+.contact-orb::after {
+    inset: 32%;
+    border-radius: 42% 58% 45% 55% / 52% 48% 52% 48%;
+}
+
 @media (max-width: 992px) {
     .header-visual {
         min-height: 18rem;
@@ -1027,6 +1456,23 @@ footer a {
     .servizi-section .row {
         gap: 32px;
     }
+
+    .contatti-page .contatti-section {
+        padding: 48px 0;
+    }
+
+    .contact-panel--form,
+    .contact-panel--info,
+    .contact-panel--image,
+    .contact-panel--map {
+        padding: 22px;
+    }
+
+    .map-frame-wrap,
+    .contact-map {
+        min-height: 300px;
+        height: 300px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1041,27 +1487,94 @@ footer a {
     }
 
     .navbar {
+        align-items: flex-start;
         flex-wrap: wrap;
+        gap: 0.75rem;
     }
 
     .nav-links {
         width: 100%;
         display: none;
-        padding-top: 0.75rem;
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+        gap: 0.5rem;
+        padding: 0.6rem;
+        margin-top: 0.35rem;
+        border-radius: 16px;
+        border: 1px solid rgba(248, 250, 252, 0.08);
+        background: rgba(15, 23, 42, 0.84);
+        max-height: 56vh;
+        overflow-y: auto;
     }
 
     .nav-links.open {
-        display: flex;
+        display: grid;
     }
 
     .nav-toggle {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        margin-left: auto;
+    }
+
+    .nav-links a,
+    .nav-links .btn-ghost {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.72rem 0.85rem;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(248, 250, 252, 0.08);
+        font-size: 0.88rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links .btn-ghost:hover {
+        background: rgba(0, 255, 148, 0.08);
     }
 
     .header-copy h1 {
         max-width: 100%;
+    }
+
+    .contenuto-intestazione {
+        padding: 0.25rem 0;
+    }
+
+    .contenuto-intestazione h1 {
+        max-width: 100%;
+        font-size: clamp(2.4rem, 12vw, 3.4rem);
+    }
+
+    .home-page .contenuto-intestazione h1 {
+        padding-inline: 0.35rem;
+    }
+
+    .contenuto-intestazione .lead {
+        font-size: 1rem;
+    }
+
+    .cta-row {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .btn-primary,
+    .btn-outline {
+        width: 100%;
+    }
+
+    .header-visual {
+        min-height: 14rem;
+        margin-top: 1rem;
+    }
+
+    .visuale,
+    .shield-visual,
+    .contact-orb {
+        width: min(16rem, 100%);
     }
 
     .about .container,
@@ -1069,8 +1582,59 @@ footer a {
         border-radius: 1.1rem;
     }
 
+    .story-section,
+    .team-section,
+    .servizi-section,
+    .cybertest-section,
+    .contatti-page .contatti-section,
+    .past-works-section {
+        padding: 2.5rem 0;
+    }
+
+    .section-title,
+    .services .section-title,
+    .past-works-hero h1,
+    .servizi-hero h1,
+    .cybertest-page .intestazione h1,
+    .contatti-page .contatti-hero h1,
+    .chi-siamo-hero h1 {
+        font-size: clamp(2.2rem, 11vw, 3.2rem);
+    }
+
+    .lead,
+    .contact-cta p,
+    .about p,
+    .past-works-hero .lead,
+    .servizi-hero .lead,
+    .cybertest-page .contenuto-intestazione .lead,
+    .contatti-page .contatti-hero .lead,
+    .chi-siamo-hero .contenuto-intestazione .lead {
+        font-size: 0.98rem;
+        max-width: 100%;
+    }
+
+    .service-card,
+    .team-card,
+    .past-work-card,
+    .cybertest-card,
+    .contact-panel {
+        border-radius: 20px;
+    }
+
     .chi-siamo-hero h1 {
         font-size: clamp(2.8rem, 13vw, 4rem);
+    }
+
+    .story-copy p,
+    .team-card p,
+    .past-work-content p,
+    .contact-copy,
+    .contact-note {
+        font-size: 0.96rem;
+    }
+
+    .story-media img {
+        border-radius: 20px;
     }
 
     .team-card-media img {
@@ -1101,6 +1665,18 @@ footer a {
 
     .servizi-card-media {
         height: 200px;
+    }
+
+    .servizi-card .card-body,
+    .cybertest-card {
+        padding: 1.25rem;
+    }
+
+    .servizi-card .card-body p,
+    .test-question-text,
+    .result-score-message,
+    .past-work-content p {
+        line-height: 1.55;
     }
 
     .cybertest-card {
@@ -1151,6 +1727,136 @@ footer a {
 
     .cybertest-page .intestazione h1 {
         font-size: clamp(2.8rem, 13vw, 4rem);
+    }
+
+    .contatti-page .contatti-hero h1 {
+        font-size: clamp(2.8rem, 13vw, 4rem);
+    }
+
+    .contact-panel--form,
+    .contact-panel--info,
+    .contact-panel--image,
+    .contact-panel--map {
+        padding: 18px;
+        border-radius: 22px;
+    }
+
+    .contact-map,
+    .map-frame-wrap {
+        min-height: 260px;
+        height: 260px;
+    }
+
+    .contact-form .form-control {
+        padding: 0.85rem 0.95rem;
+        border-radius: 14px;
+    }
+
+    .btn-contact {
+        width: 100%;
+        min-height: 46px;
+    }
+
+    .contact-orb {
+        width: min(18rem, 100%);
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .past-works-stack {
+        gap: 32px;
+    }
+
+    .past-work-card {
+        padding: 1.25rem;
+    }
+
+    .past-work-media {
+        min-height: 200px;
+    }
+
+    .past-work-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container,
+    .container-fluid {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
+    .navbar {
+        padding: 0.55rem 0;
+    }
+
+    .nav-links a,
+    .nav-links .btn-ghost {
+        padding: 0.68rem 0.78rem;
+    }
+
+    .home-page .contenuto-intestazione h1 {
+        padding-inline: 0.45rem;
+        line-height: 1.06;
+    }
+
+    .intestazione {
+        padding: 2.5rem 0;
+    }
+
+    .services,
+    .about,
+    .contact-cta {
+        padding: 2.25rem 0;
+    }
+
+    .services .row.g-4,
+    .servizi-section .row,
+    .team-stack,
+    .past-works-stack {
+        gap: 1rem;
+    }
+
+    .service-card,
+    .team-card,
+    .past-work-card,
+    .contact-panel,
+    .cybertest-card {
+        border-radius: 18px;
+    }
+
+    .service-icon {
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: 1.2rem;
+    }
+
+    .team-card .card-body,
+    .servizi-card .card-body {
+        padding: 1rem;
+    }
+
+    .result-score-percentage {
+        font-size: 1.8rem;
+    }
+
+    .contact-item {
+        padding: 0.85rem 0.9rem;
+    }
+
+    .contact-image-placeholder {
+        min-height: 210px;
+        font-size: 0.95rem;
+    }
+
+    footer {
+        margin-top: 2rem;
+        min-height: 88px;
     }
 }
 
@@ -1276,15 +1982,19 @@ footer a {
     background: #E8ECF1;
     border-radius: 12px;
     aspect-ratio: 4 / 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: #94A3B8;
-    font-weight: 600;
+    display: block;
     overflow: hidden;
+    position: relative;
 }
 
+
+
+.past-work-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
 .past-work-content {
     padding: 1.5rem 0;
@@ -1322,4 +2032,8 @@ footer a {
     font-weight: 600;
     padding: 0.4rem 0.75rem;
     border-radius: 4px;
+}
+
+html {
+  scroll-behavior: smooth;
 }

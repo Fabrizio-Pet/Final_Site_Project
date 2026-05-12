@@ -44,6 +44,8 @@ function initDonutChart(){
     const ctx = document.getElementById('threat-donut');
     if(!ctx) return;
 
+    const riskLevelEl = document.getElementById('risk-level');
+
     const data = {
         labels: ['Basso','Moderato','Alto'],
         datasets: [{
@@ -54,12 +56,16 @@ function initDonutChart(){
         }]
     };
 
-    new Chart(ctx, {
+    const chart = new Chart(ctx, {
         type: 'doughnut',
         data: data,
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            animation: {
+                duration: 700,
+                easing: 'easeOutCubic'
+            },
             plugins: {
                 legend: { position: 'bottom', labels: { color: '#0F172A' } },
                 tooltip: { enabled: true }
@@ -67,6 +73,32 @@ function initDonutChart(){
             cutout: '60%'
         }
     });
+
+    function nextThreatDistribution(){
+        // Small random drift around a realistic baseline, then normalize to 100.
+        const low = Math.max(52, Math.min(78, data.datasets[0].data[0] + (Math.random() * 8 - 4)));
+        const moderate = Math.max(14, Math.min(32, data.datasets[0].data[1] + (Math.random() * 6 - 3)));
+        const high = Math.max(6, Math.min(20, 100 - low - moderate));
+
+        const total = low + moderate + high;
+        const normalizedLow = Math.round((low / total) * 100);
+        const normalizedModerate = Math.round((moderate / total) * 100);
+        const normalizedHigh = 100 - normalizedLow - normalizedModerate;
+
+        return [normalizedLow, normalizedModerate, normalizedHigh];
+    }
+
+    function updateChart(){
+        const [low, moderate, high] = nextThreatDistribution();
+        chart.data.datasets[0].data = [low, moderate, high];
+        chart.update();
+
+        if(riskLevelEl){
+            riskLevelEl.textContent = high + '%';
+        }
+    }
+
+    setInterval(updateChart, 3200);
 }
 
 function initTerminalLog(){
