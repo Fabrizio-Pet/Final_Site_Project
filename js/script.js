@@ -1,7 +1,5 @@
 // Script JavaScript per il Progetto TPSI
 
-console.log('Script caricato correttamente');
-
 function isInternalNavigationLink(link) {
     if (!link || !link.getAttribute) {
         return false;
@@ -53,8 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         const href = link.getAttribute('href').split('/').pop();
         if (href === currentPage) {
-            link.style.color = '#00FF94';
-            link.style.fontWeight = '700';
+            link.classList.add('is-active');
         }
     });
 
